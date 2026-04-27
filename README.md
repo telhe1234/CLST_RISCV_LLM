@@ -23,6 +23,10 @@ The included notebooks and scripts can be used to reproduce the generation loop,
 
 The Quartus project files are provided to support FPGA synthesis and implementation on the Altera MAX 10 FPGA using the Terasic DE10-Lite development board.
 
-## Acknowledgment
+## Acknowledgment and Related Work
 
-This workflow was adapted from the ROME hierarchical prompting framework. The present repository modifies and extends the ROME-style generation and evaluation loop for CLST-guided LLM-aided hardware design, targeting a single-cycle RV32I RISC-V processor and FPGA implementation.
+This repository adapts parts of the evaluation workflow from the ROME hierarchical prompting framework introduced in:
+
+Andre Nakkab, Sai Qian Zhang, Ramesh Karri, and Siddharth Garg, "Rome was Not Built in a Single Step: Hierarchical Prompting for LLM-based Chip Design," arXiv:2407.18276, 2024.
+
+The present repository modifies and extends the ROME-style generation and evaluation workflow for CLST-guided LLM-aided RV32I RISC-V processor design, simulation, pass@k benchmarking, and FPGA implementation.
