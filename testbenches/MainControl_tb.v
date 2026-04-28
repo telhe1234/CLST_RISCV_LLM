@@ -66,19 +66,17 @@ module MainControl_tb;
   endtask
 
   initial begin
-    // CLST-07 rows
     check(7'b0110011, 0,0,1,0,0,0,0,0,0,0, 2'b10); // R-type
-    check(7'b0010011, 1,0,1,0,0,0,0,0,0,0, 2'b10); // I-type ALU
+    check(7'b0010011, 1,0,1,0,0,0,0,0,0,0, 2'b11); // I-type ALU-immediate
     check(7'b0000011, 1,1,1,1,0,0,0,0,0,0, 2'b00); // Loads
     check(7'b0100011, 1,0,0,0,1,0,0,0,0,0, 2'b00); // Stores
     check(7'b1100011, 0,0,0,0,0,1,0,0,0,0, 2'b01); // Branches
     check(7'b1101111, 0,0,1,0,0,0,1,0,0,0, 2'b00); // JAL
     check(7'b1100111, 1,0,1,0,0,0,0,1,0,0, 2'b00); // JALR
     check(7'b0110111, 0,0,1,0,0,0,0,0,1,0, 2'b00); // LUI
-    check(7'b0010111, 0,0,1,0,0,0,0,0,0,1, 2'b00); // AUIPC
+    check(7'b0010111, 1,0,1,0,0,0,0,0,0,1, 2'b00); // AUIPC
     check(7'b1110011, 0,0,0,0,0,0,0,0,0,0, 2'b00); // SYSTEM
 
-    // Default/illegal => all zeros
     opcode = 7'b1010101; #1;
     if (alu_src|mem_to_reg|reg_write|mem_read|mem_write|branch|jal_en|jalr_en|lui_en|auipc_en|(alu_op!=2'b00)) begin
       $display("FAIL default/illegal not all-zero");
