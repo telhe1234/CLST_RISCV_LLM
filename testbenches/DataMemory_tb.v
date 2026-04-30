@@ -8,7 +8,7 @@ module DataMemory_tb;
   reg mem_write;
   reg [2:0] funct3;
   wire [31:0] rd;
-
+  integer i;
   DataMemory dut(
     .clk(clk), .rst(rst),
     .addr(addr), .wd(wd),
@@ -60,7 +60,6 @@ module DataMemory_tb;
   endtask
 
   initial begin
-    integer i;
     addr = 0;
     wd = 0;
     mem_read = 0;
